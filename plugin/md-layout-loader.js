@@ -3,7 +3,11 @@ const matter = require("gray-matter");
 module.exports = async function (src) {
 	const callback = this.async();
 	const { content, data } = matter(src);
-	const code = `export const frontMatter = ${JSON.stringify(data)}
-${content}`;
+	const code =
+		`import Layout from '../../components/Layout/index';
+
+export default Layout;
+
+	` + content;
 	return callback(null, code);
 };
