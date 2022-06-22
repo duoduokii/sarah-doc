@@ -1,9 +1,4 @@
-const path = require("path");
 const withMdx = require("@next/mdx")();
-function remarkPlugins(md) {
-	console.log(123, md);
-	return md.toString();
-}
 
 module.exports = withMdx({
 	pageExtensions: ["mdx", "md", "jsx", "js", "tsx", "ts"],
@@ -15,10 +10,9 @@ module.exports = withMdx({
 				{
 					loader: "@mdx-js/loader",
 					options: {
-						markdownToHtml: remarkPlugins,
+						providerImportSource: "@mdx-js/react",
 					},
 				},
-				path.join(__dirname, "./plugin/md-layout-loader.js"),
 			],
 		});
 		return config;

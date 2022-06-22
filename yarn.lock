@@ -305,12 +305,7 @@
     unist-builder "2.0.3"
     unist-util-visit "2.0.3"
 
-"@mdx-js/react@1.6.22":
-  version "1.6.22"
-  resolved "https://registry.npmmirror.com/@mdx-js/react/download/@mdx-js/react-1.6.22.tgz#ae09b4744fddc74714ee9f9d6f17a66e77c43573"
-  integrity sha1-rgm0dE/dx0cU7p+dbxembnfENXM=
-
-"@mdx-js/react@^1.6.22":
+"@mdx-js/react@1.6.22", "@mdx-js/react@^1.6.22":
   version "1.6.22"
   resolved "https://registry.npmmirror.com/@mdx-js/react/download/@mdx-js/react-1.6.22.tgz?cache=0&sync_timestamp=1634664759362&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40mdx-js%2Freact%2Fdownload%2F%40mdx-js%2Freact-1.6.22.tgz#ae09b4744fddc74714ee9f9d6f17a66e77c43573"
   integrity sha1-rgm0dE/dx0cU7p+dbxembnfENXM=

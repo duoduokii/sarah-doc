@@ -7,7 +7,6 @@ const Wrapper = (props) => <main style={{ padding: "20px", backgroundColor: "tom
 
 export default function App(props) {
 	const { Component, pageProps, children } = props;
-	console.log(props);
 
 	// return <MDXProvider components={Component}></MDXProvider>;
 	return <Component></Component>;
