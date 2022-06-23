@@ -18,9 +18,9 @@ const Home = ({ routes }) => {
 	);
 };
 
-export async function getStaticProps() {
+export function getStaticProps() {
 	const routes = getRoute(E_DOC_TYPE.DEV);
-
+	console.log(routes);
 	return {
 		props: {
 			routes,

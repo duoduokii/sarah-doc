@@ -13,6 +13,9 @@ module.exports = withMdx({
 						providerImportSource: "@mdx-js/react",
 					},
 				},
+				{
+					loader: "./plugin/md-layout-loader.js",
+				},
 			],
 		});
 		return config;
