@@ -3,15 +3,17 @@ import { E_DOC_TYPE } from "../../constants";
 
 const Home = ({ routes }) => {
 	return (
-		<div>
+		<div className="w-11/12 md:w-[940px] mx-auto">
 			{routes.map((route, idx) => (
 				<div key={idx}>
-					<h1>
-						<a href={route.path}>{route.title}</a>
+					<h1 className="text-4xl font-bold ">
+						<a className="text-black underline decoration-[#cdf0f0] decoration-8" href={route.path}>
+							{route.title}
+						</a>
 					</h1>
-					<p>{route.date}</p>
-					<p>{route.auther}</p>
-					<p>{route.description}</p>
+					<p className="mt-4">{route.date}</p>
+					{/* <p className="mt-4">{route.auther}</p> */}
+					<p className="mt-2">{route.description}</p>
 				</div>
 			))}
 		</div>
