@@ -1,0 +1,42 @@
+# serverless.yml
+
+#应用组织信息
+app: sarah_doc # 应用名称。留空则默认取当前组件的实例名称为app名称。
+# stage: "" # 环境名称。默认值是 dev。建议使用${env.STAGE}变量定义环境名称
+
+#组件信息
+component: http # (必填) 组件名称，此处为nextjs
+name: sarah_doc_nextjs # (必填) 实例名称
+
+#组件参数配置
+inputs:
+  region: ap-shanghai # 云函数所在区域
+  src: # 部署src下的文件代码，并打包成zip上传到bucket上
+    dist: ./ # 本地需要打包的文件目录
+    hook: npm run build
+    exclude: # 被排除的文件或目录
+      - .env
+      # - "node_modules/**"
+  faas: # 函数配置相关
+    framework: nextjs #选择框架，此处以 express 为例
+    runtime: Nodejs14.18
+    name: "${name}" # 云函数名称
+    timeout: 10 # 超时时间，单位秒
+    memorySize: 512 # 内存大小，默认 512 MB
+    # layers:
+    #   - name: nextjs #  layer名称
+    #     version: 1 #
+
+  apigw: #  # http 组件会默认帮忙创建一个 API 网关服务
+    isDisabled: false # 是否禁用自动创建 API 网关功能
+    # id: service-xxx # api网关服务ID，不填则自动新建网关
+    name: node_gateway # api网关服务ID
+    api: # 创建的 API 相关配置
+      cors: true #  允许跨域
+      timeout: 15 # API 超时时间
+      name: node_gate_way_sarah # API 名称
+      qualifier: $DEFAULT # API 关联的版本
+    protocols:
+      - http
+      - https
+    environment: test
