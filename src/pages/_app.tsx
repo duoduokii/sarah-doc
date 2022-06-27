@@ -10,7 +10,9 @@ function App({ Component, pageProps }: AppProps) {
 				<Image src="/icons/logo.png" width="64" height="64"></Image>
 				<ul className="flex">
 					<li className="mr-4">开发日记</li>
-					<li className="mr-4">专栏</li>
+					<li className="mr-4">
+						<a href="/course">专栏</a>
+					</li>
 					<li className="mr-4">日常</li>
 				</ul>
 			</div>
