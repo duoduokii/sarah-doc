@@ -1,4 +1,32 @@
 const inquirer = require("inquirer");
+const path = require("path");
+const fs = require("fs");
+
+/**
+ * 创建文档
+ */
+const createDoc = ({ type, courseName, name }) => {
+	const typePath = path.join(__dirname, `../src/pages/${type}/`);
+	const dirs = fs.readdirSync(typePath, "utf-8");
+	if (dirs.includes(courseName)) {
+		// console.log("专栏已存在！！！");
+		fs.writeFileSync(typePath + `${courseName}/${name}.md`, createContent());
+	}
+};
+
+/**
+ * 生成文档内容
+ */
+const createContent = () => {
+	return `---
+	title: Start
+	date: 2022.06.19
+---
+
+## welcome to maxkii
+
+	`;
+};
 
 inquirer
 	.prompt([
@@ -20,7 +48,7 @@ inquirer
 		},
 	])
 	.then((answers) => {
-		console.log(answers);
+		createDoc(answers);
 	})
 	.catch((error) => {
 		if (error.isTtyError) {

@@ -2,6 +2,7 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn).
 
 ## TODO
 
+	- [ ] 使用流处理文件操作
   - [ ] 命令行交互优化
 
 ## 自动生成脚本
