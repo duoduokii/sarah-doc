@@ -19,8 +19,8 @@ const createDoc = ({ type, courseName, name }) => {
  */
 const createContent = () => {
 	return `---
-	title: Start
-	date: 2022.06.19
+title: Start
+date: 2022.06.19
 ---
 
 ## welcome to maxkii

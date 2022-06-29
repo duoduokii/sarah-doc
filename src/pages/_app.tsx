@@ -1,8 +1,11 @@
 import Image from "next/image";
-import type { AppProps } from "next/app";
+// import { AppProps } from "next/app";
+import { MDXProvider } from "@mdx-js/react";
+import MDXComponents from "components/mdx";
+
 import "../styles/global.css";
 
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }) {
 	return (
 		<div className="min-h-screen">
 			{/* <div className="min-h-screen bg-[#9392c5]"> */}
@@ -17,9 +20,11 @@ function App({ Component, pageProps }: AppProps) {
 				</ul>
 			</header>
 			<div className="mb-5">
-				<Component {...pageProps}></Component>
+				<MDXProvider components={MDXComponents}>
+					<Component {...pageProps} />
+				</MDXProvider>
 			</div>
-			<footer className="h-16 flex justify-center items-center bg-[#9b9ad0]">this is footer</footer>
+			<footer className="fixed w-screen left-0 right-0 bottom-0 h-16 flex justify-center items-center bg-[#9b9ad0]">this is footer</footer>
 		</div>
 	);
 }

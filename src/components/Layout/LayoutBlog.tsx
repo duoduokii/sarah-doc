@@ -1,5 +1,3 @@
-import { title } from "process";
-
 export default function Layout({ title, date }) {
 	return ({ children }) => (
 		<MarkDownPage title={title} date={date}>
@@ -10,10 +8,12 @@ export default function Layout({ title, date }) {
 
 const MarkDownPage = ({ title, date, children }) => {
 	return (
-		<div>
-			<h1>{title}</h1>
-			<p>{date}</p>
+		<div className="w-11/12 md:w-[940px] m-auto">
+			{/* <h1>{title}</h1>
+			<p>{date}</p> */}
+			{/* <MDXProvider components={MDXComponents}> */}
 			<div>{children}</div>
+			{/* </MDXProvider> */}
 		</div>
 	);
 };
