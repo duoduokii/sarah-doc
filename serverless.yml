@@ -28,8 +28,8 @@ inputs:
     #     version: 1 #
 
   apigw: #  # http 组件会默认帮忙创建一个 API 网关服务
-    isDisabled: false # 是否禁用自动创建 API 网关功能
-    # id: service-xxx # api网关服务ID，不填则自动新建网关
+    isDisabled: true # 是否禁用自动创建 API 网关功能
+    id: service-bitbr2ip # api网关服务ID，不填则自动新建网关
     name: node_gateway # api网关服务ID
     api: # 创建的 API 相关配置
       cors: true #  允许跨域

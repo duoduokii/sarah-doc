@@ -2,17 +2,37 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-import { E_DOC_TYPE } from "../constants";
-
-const routeMap = {
-	[E_DOC_TYPE.DEV]: path.join(process.cwd(), "src/devIndex.json"),
+const getPosts = () => {
+	const posts = [];
+	const dir = path.join(process.cwd(), "src/pages/blog");
+	const filePosts = fs.readdirSync(dir, "utf-8").map((file) => getPost(file, dir));
+	filePosts.forEach((file) => {
+		if (!file.href.includes(".")) {
+			posts.push(file);
+		}
+	});
+	return posts;
 };
 
-export const getRoute = (type: E_DOC_TYPE) => {
-	const fileContents = fs.readFileSync(routeMap[type], "utf-8");
-	const route = JSON.parse(fileContents).route;
-	return route;
+const getPost = (file, dir) => {
+	const fullPath = path.join(dir, file);
+	const fileContent = fs.readFileSync(fullPath, "utf-8");
+	const { data, excerpt } = matter(fileContent, { excerpt: true });
+	return {
+		href: `/blog/${file.replace(/\.mdx?$/, "")}`,
+		title: data.title,
+		date: data.date,
+		excerpt,
+	};
 };
+
+export default getPosts;
+
+// export const getRoute = (type: E_DOC_TYPE) => {
+// 	const fileContents = fs.readFileSync(routeMap[type], "utf-8");
+// 	const route = JSON.parse(fileContents).route;
+// 	return route;
+// };
 
 // function getPostBySlug(slug: string) {
 // 	const files = fs.readFileSync(postsDirectory);
